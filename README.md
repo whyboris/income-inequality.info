@@ -1,4 +1,4 @@
-# [income-inequality.info](http://income-inequality.info/about.html)
+# [income-inequality.info](http://income-inequality.info/)
 
 This is the official repository and the file host for the website.
 
