@@ -67,13 +67,14 @@ button span {
 }
 
 .chart-title-hack {
-  position: absolute;
-  left: 14px;
-  top: 10px;
-  font-size: 16px;
-  line-height: 18px;
   background-color: #fafafa;
+  font-size: 16px;
+  left: 14px;
+  line-height: 18px;
   padding: 10px 10px 5px;
+  position: absolute;
+  top: 10px;
+  width: 90%;
 }
 
 .chart-title-hack span {
