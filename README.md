@@ -16,3 +16,8 @@ Created by _Boris Yakubchik_
 - The interactive map was built with [jQuery Mapael](https://www.vincentbroute.fr/mapael/)
 
 To report errors, ask questions, or offer corrections, please use the _Issues_ section on this or the other repository.
+
+
+## Preview
+
+![Income Inequality](https://raw.githubusercontent.com/whyboris/income-inequality.info/master/images/7.png)
