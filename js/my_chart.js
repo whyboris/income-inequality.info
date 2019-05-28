@@ -74,7 +74,7 @@ function toggleCountry(code) {
   if (myChart.data.datasets[index].showLine) {
     myChart.data.datasets[index].showLine = false;
     freeUpColor(myChart.data.datasets[index].borderColor);
-    colorizeMap(code, color_map_default, false);
+    colorizeMap(code, color_map_default, false, false);
     toggleCountryButton(code, color_button_default);
   } else {
     // DO NOTHING IF MAX COLORS REACHED
@@ -83,7 +83,7 @@ function toggleCountry(code) {
       myChart.data.datasets[index].borderColor = newColor;
       myChart.data.datasets[index].showLine = true;
       const hex = RGBToHex(newColor);
-      colorizeMap(code, hex, true);
+      colorizeMap(code, hex, true, false);
       toggleCountryButton(code, newColor);
     } else {
       alert('At most 9 countries can be compared');
@@ -175,22 +175,34 @@ function toggleCountryButton(iso3, color) {
  * @param {*} iso3 
  * @param {*} color 
  * @param {*} enable -- boolean -- if true, then enable, if false, then disable 
+ * @param {*} unclickable -- boolean -- if true, then make hover color white
  */
-function colorizeMap(iso3, color, enable) {
+function colorizeMap(iso3, color, enable, unclickable) {
   const iso2 = toIso2(iso3);
   
   const newData = {
     'areas': {}
   };
   
-  newData.areas[iso2] = {
-    attrs: {
-      fill: color,
-    }, 
-    attrsHover: {
-      fill: enable ? color : color_map_hover,
-    }
-  };
+  if (unclickable) {
+    newData.areas[iso2] = {
+      attrs: {
+        fill: color,
+      },
+      attrsHover: {
+        fill: '#FFFFFF',
+      }
+    };
+  } else {
+    newData.areas[iso2] = {
+      attrs: {
+        fill: color,
+      }, 
+      attrsHover: {
+        fill: enable ? color : color_map_hover,
+      }
+    };
+  }
   
   $(".map-container").trigger('update', [{ mapOptions: newData }]);
 }
@@ -198,7 +210,7 @@ function colorizeMap(iso3, color, enable) {
 // console.log(COUNTRIES_NOT_IN_DATASET);
 
 COUNTRIES_NOT_IN_DATASET.forEach((iso2) => {
-  colorizeMap(toIso3(iso2), '#FFFFFF', false);
+  colorizeMap(toIso3(iso2), '#FFFFFF', false, true);
 });
 
 // ----------------------------------------------------------------------------------
