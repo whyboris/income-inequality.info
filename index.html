@@ -13,6 +13,8 @@
 
   <title>Income-Inequality.info - explore income inequality data</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta name="description" content="Income Inequality" />
   <meta name="keywords" content="income inequality, income, inequality, world, global" />
   <meta name="author" content="Boris Yakubchik" />
@@ -415,11 +417,11 @@
     </p>
   </article>
 
-  <div class="map-container preview-chart center-it-all">
+  <div class="map-container">
     <div class="map">MAP LOADING ERROR</div>
   </div>
-
-  <div id="full_chart" class="preview-chart center-it-all">
+  
+  <div id="full_chart" class="chart-container">
     <div class="chart-title-hack">
       <span style="font-size: 120%; margin-bottom: 10px;">
         World Income Distribution 2011
@@ -427,14 +429,14 @@
       <span>
         Country percentile vs world income income distribution
       </span>
-      Income per person per year in 2011 PPP (Purchasing Power Parity) dollars
+      <span>
+        Income per person per year in 2011 PPP (Purchasing Power Parity) dollars
+      </span>
     </div>
     <canvas id="myChart" width="16" height="10"></canvas>
   </div>
 
-  <div id="button-holder center-it-all">
-    <div id="buttons"></div>
-  </div>
+  <div id="buttons"></div>
 
   <script src="js/my_map.js"></script>
 
