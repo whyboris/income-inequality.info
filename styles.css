@@ -40,34 +40,43 @@ html {
   border-bottom: 1px solid #a1e4ff;
 }
 
-button span {
-  /* do not alphabetize -- 
-    this makes the text inverted -- 
-    important when the button turns black */
-  background-clip: text;
-  background: inherit;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: invert(1) grayscale(1) contrast(100);
-}
+/* ================== MAP & CHART ================== */
 
-#button-holder {
-  width: 90%;
-}
-
-.preview-chart {
+.chart-container {
   border: 1px solid gray;
-  display: inline-block;
-  margin: 10px;
-  user-select: none;
-  width: 90%;
+  margin-bottom: 10px;
+  zoom: 0.5;
+}
+
+.map-container {
   max-width: 800px;
-  min-width: 700px;
+  max-height: 600px;
+
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  border: 1px solid gray;
+  box-sizing: border-box;
+  padding: 25%; /* hack -- 40% means height is 80% of width */
   position: relative;
+  width: 100%;
+}
+
+.map {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleY(1.4) translate(0, 7%);
+}
+
+.map svg {
+  width: 100%;
 }
 
 .chart-title-hack {
   background-color: #fafafa;
+  box-sizing: border-box;
+  display: none; /* FOR NOW */
   font-size: 16px;
   left: 14px;
   line-height: 18px;
@@ -80,6 +89,19 @@ button span {
 .chart-title-hack span {
   display: block;
   margin-bottom: 5px;
+}
+
+/* ================== BUTTONS ================== */
+
+button span {
+  /* do not alphabetize -- 
+    this makes the text inverted -- 
+    important when the button turns black */
+  background-clip: text;
+  background: inherit;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: invert(1) grayscale(1) contrast(100);
 }
 
 .button {
@@ -96,69 +118,121 @@ button span {
   width: 100%;
 }
 
-.map-container {
-  background-color: #d1d8fe;
-  height: 500px;
-  overflow: hidden;
-  width: 800px;
-}
-
-.center-it-all {
-  margin-left: 50%;
-  transform: translate(-50%, 0);
-}
-
-.map {
-  transform: scaleY(1.4) translate(0, 66px);
-}
-
 #buttons {
   column-count: 10;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
 }
 
-@media all and (max-width: 2000px) {
+/* ================== CHART & MAP BREAKPOINTS ================== */
+
+@media all and (min-width: 500px) {
+  .chart-container {
+    zoom: 0.6;
+  }
+}
+
+@media all and (min-width: 600px) {
+  .chart-container {
+    zoom: 0.7;
+  }
+}
+
+@media all and (min-width: 700px) {
+  .chart-container {
+    zoom: 0.8;
+  }
+}
+
+@media all and (min-width: 800px) {
+  .chart-container {
+    zoom: 0.9;
+  }
+}
+
+@media all and (min-width: 870px) {
+  .map-container {
+    height: 420px;
+    margin-left: 50%;
+    padding: 0;
+    transform: translate(-50%, 0);
+    width: 800px;
+  }
+
+  .chart-container {
+    margin-left: 50%;
+    max-width: 800px;
+    transform: translate(-50%, 0);
+    width: 800px;
+    zoom: 1;
+  }
+}
+
+@media all and (min-width: 2000px) {
+  .map-container {
+    display: inline-block;
+    margin-left: calc(50vw - 800px);
+    transform: translate(0, 0);
+  }
+  .chart-container {
+    display: inline-block;
+    margin-left: 0;
+    transform: translate(0, 0);
+  }
+}
+
+/* ================== BUTTONS BREAKPOINTS ================== */
+
+@media all and (max-width: 1730px) {
+  #buttons {
+    column-count: 10;
+  }
+}
+
+@media all and (max-width: 1570px) {
   #buttons {
     column-count: 9;
   }
 }
 
-@media all and (max-width: 1800px) {
+@media all and (max-width: 1410px) {
   #buttons {
     column-count: 8;
   }
 }
 
-@media all and (max-width: 1600px) {
+@media all and (max-width: 1250px) {
   #buttons {
     column-count: 7;
   }
 }
 
-@media all and (max-width: 1400px) {
+@media all and (max-width: 1090px) {
   #buttons {
     column-count: 6;
   }
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: 930px) {
   #buttons {
     column-count: 5;
   }
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 770px) {
   #buttons {
     column-count: 4;
   }
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 610px) {
   #buttons {
     column-count: 3;
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 450px) {
   #buttons {
     column-count: 2;
   }
