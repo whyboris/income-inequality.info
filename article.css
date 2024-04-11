@@ -30,7 +30,7 @@ abbr {
 }
 
 .reference-link {
-  color: #126282;
+  color: #0080c0;
   cursor: pointer;
   font-size: 70%;
   position: relative;
@@ -59,12 +59,17 @@ body {
   padding: 0 20px;
 }
 
+.reference ~ .reference {
+  margin-top: 10px;
+}
+
 * {
   outline: none;
 }
 
 a {
-  border-bottom: 1px solid #126282;
+  color: #0080c0;
+  border-bottom: 1px solid #0080c0;
   padding-bottom: 2px;
   text-decoration: none;
   transition-duration: 250ms;
@@ -73,18 +78,18 @@ a {
 }
 
 a:visited {
-  color: #126282;
+  color: #0080c0;
 }
 
 a:hover {
-  border-bottom: 1px solid #a1e4ff;
+  border-bottom: 1px solid #80c0e0;
   text-decoration: none;
   transition-duration: 250ms;
   transition-property: border-bottom;
 }
 
 a:active {
-  color: #a1e4ff;
+  color: #80c0e0;
 }
 
 h1,
@@ -93,7 +98,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #126282;
+  color: #0080c0;
 }
 
 h2,
@@ -132,16 +137,16 @@ ul li {
 ul li:before {
   content: "\2022";
   margin-right: 10px;
-  color: #126282;
+  color: #0080c0;
   margin-left: -1em;
 }
-/* 
-ul li ul { 
+/*
+ul li ul {
 }
 */
 ul li ul li:before {
   content: "-";
-  color: #126282;
+  color: #0080c0;
 }
 
 ul li ul li {
